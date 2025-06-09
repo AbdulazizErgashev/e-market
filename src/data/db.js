@@ -1,4 +1,4 @@
-const productsData = [
+export const productsData = [
   {
     _id: "1",
     title: "Classic Hoodie",
