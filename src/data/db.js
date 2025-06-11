@@ -23,7 +23,7 @@ export const productsData = [
     count: 0,
     quantity: 20,
     rating: 4.5,
-    price: 50,
+    price: 24.99,
   },
   {
     _id: 2,
@@ -49,7 +49,7 @@ export const productsData = [
     count: 0,
     quantity: 15,
     rating: 4.8,
-    price: 75,
+    price: 42.49,
   },
   {
     _id: 3,
@@ -75,7 +75,7 @@ export const productsData = [
     count: 0,
     quantity: 10,
     rating: 4.3,
-    price: 120,
+    price: 59.99,
   },
   {
     _id: 4,
@@ -101,7 +101,7 @@ export const productsData = [
     count: 0,
     quantity: 8,
     rating: 4.7,
-    price: 150,
+    price: 74.99,
   },
   {
     _id: 5,
@@ -127,7 +127,7 @@ export const productsData = [
     count: 0,
     quantity: 25,
     rating: 4.2,
-    price: 25,
+    price: 14.49,
   },
   {
     _id: 6,
@@ -153,7 +153,7 @@ export const productsData = [
     count: 0,
     quantity: 12,
     rating: 4.6,
-    price: 85,
+    price: 39.95,
   },
   {
     _id: 7,
@@ -179,7 +179,7 @@ export const productsData = [
     count: 0,
     quantity: 18,
     rating: 4.4,
-    price: 35,
+    price: 18.75,
   },
   {
     _id: 8,
@@ -205,6 +205,6 @@ export const productsData = [
     count: 0,
     quantity: 30,
     rating: 4.9,
-    price: 20,
+    price: 9.99,
   },
 ];
