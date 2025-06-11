@@ -37,11 +37,11 @@ export const productsData = [
       },
       {
         color: "red",
-        img: "https://www.shoepalace.com/cdn/shop/products/9bad901bf52909ac9c411b6134732dfc_2048x2048.jpg?v=1654105877&title=nike-cv7544-600-air-max-270-mens-running-shoe-red-red",
+        img: "https://thumblr.uniid.it/product/98896/7d1dcab00c74.jpg?width=3840&format=webp&q=75",
       },
       {
         color: "blue",
-        img: "https://www.craftsports.us/cdn/shop/files/1913374-359602_EnduranceTrailM_Top.jpg?v=1741826913&width=1445",
+        img: "https://assets.soletrader.net/600x600/filters:fit()/dynamic/ZR01BLUE-2.jpg",
       },
     ],
     like: false,
@@ -91,7 +91,7 @@ export const productsData = [
       },
       {
         color: "gold",
-        img: "https://m.media-amazon.com/images/I/51jJf2W6pnL._AC_UF1000,1000_QL80_.jpg",
+        img: "https://ir.ozone.ru/s3/multimedia-1-k/c400/7139409176.jpg",
       },
     ],
     like: false,
@@ -104,19 +104,19 @@ export const productsData = [
     title: "Casual T-Shirt",
     description: "Soft and comfy t-shirt for everyday style.",
     category: "clothing",
-    img: "https://freshcleantees.com/cdn/shop/files/CREWNECKSWhite_737x980.jpg?v=1714778132",
+    img: "https://www.houseofkids.pl/media/catalog/product/6/1/61e01e3d3f55acalvin_klein_Front_website.jpg",
     colors: [
       {
         color: "white",
-        img: "https://freshcleantees.com/cdn/shop/files/CREWNECKSWhite_737x980.jpg?v=1714778132",
+        img: "https://www.houseofkids.pl/media/catalog/product/6/1/61e01e3d3f55acalvin_klein_Front_website.jpg",
       },
       {
         color: "black",
-        img: "https://avecsport.com/images/thumbs/0021268_elite-t-shirt-black.jpeg",
+        img: "https://tboapp.topbrandoutlet.co.uk/uploads/product-fetured-image/wmsm-1-230723907470.webp",
       },
       {
         color: "navy",
-        img: "https://avecsport.com/images/thumbs/0021276_elite-t-shirt-navy.jpeg",
+        img: "https://images.squarespace-cdn.com/content/v1/5632062ae4b056714fc0a063/1616191080736-32FHCEW6KL69GUU6XFJK/NORTH%2BRISE%2BNAVY%2BJ.jpg?format=1500w",
       },
     ],
     like: false,
@@ -137,7 +137,7 @@ export const productsData = [
       },
       {
         color: "white",
-        img: "https://www.rolls.cy/cdn/shop/products/1024-1307.jpg?v=1662036454",
+        img: "https://www.srhythm.com/cdn/shop/files/B09H5MWT89.MAIN_1000x.jpg?v=1737342815",
       },
       {
         color: "red",
@@ -162,11 +162,11 @@ export const productsData = [
       },
       {
         color: "black",
-        img: "https://www.mrporter.com/variants/images/14097096497399086/in/w2000_q60.jpg",
+        img: "https://www.hnwilliams.com/wp-content/uploads/2024/01/BLACK_305.jpg",
       },
       {
         color: "tan",
-        img: "https://www.leatherworldonline.net/cdn/shop/products/2_73ecaea4-f077-42a8-9879-72a8a06abe71.jpg?v=1662202848",
+        img: "https://cdn11.bigcommerce.com/s-uiywfsyvbe/products/471/images/10892/10892__56320.1719596903.386.513.jpg?c=1",
       },
     ],
     like: false,
