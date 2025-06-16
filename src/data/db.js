@@ -1,6 +1,10 @@
 import sale from "../assets/sale.avif";
 import sale2 from "../assets/sale2.webp";
 import sale3 from "../assets/sale3.jpg";
+import male1 from "../assets/man.jpg";
+import male2 from "../assets/man2.jpg";
+import female1 from "../assets/woman.webp";
+import female2 from "../assets/woman2.jpg";
 
 export const productsData = [
   {
@@ -232,6 +236,34 @@ export const saleData = [
     id: 3,
     title: "Cool sale",
     image: sale3,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 4,
+    title: "Fashion male sale",
+    image: male1,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 5,
+    title: "Fashion male sale",
+    image: male2,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 6,
+    title: "Fashion female sale",
+    image: female1,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 7,
+    title: "Fashion female sale",
+    image: female2,
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
   },
