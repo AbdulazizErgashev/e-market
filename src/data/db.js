@@ -1,3 +1,7 @@
+import sale from "../assets/sale.avif";
+import sale2 from "../assets/sale2.webp";
+import sale3 from "../assets/sale3.jpg";
+
 export const productsData = [
   {
     _id: 1,
@@ -206,5 +210,29 @@ export const productsData = [
     quantity: 30,
     rating: 4.9,
     price: 9.99,
+  },
+];
+
+export const saleData = [
+  {
+    id: 1,
+    title: "Fashion sale",
+    image: sale,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 2,
+    title: "Fashion sale",
+    image: sale2,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+  {
+    id: 3,
+    title: "Cool sale",
+    image: sale3,
+    description:
+      "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
   },
 ];
