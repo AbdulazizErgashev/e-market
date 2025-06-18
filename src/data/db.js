@@ -5,6 +5,14 @@ import male1 from "../assets/man.jpg";
 import male2 from "../assets/man2.jpg";
 import female1 from "../assets/woman.webp";
 import female2 from "../assets/woman2.jpg";
+import Ceo from "../assets/ceo.png";
+import Customer from "../assets/team.avif";
+import Accounter from "../assets/team2.jpg";
+import Agent from "../assets/team3.avif";
+import Manager from "../assets/team4.jpg";
+import Guard1 from "../assets/guard1.jpg";
+import Guard2 from "../assets/guard2.jpg";
+import Farrosh from "../assets/farrosh.jpg";
 
 export const productsData = [
   {
@@ -266,5 +274,77 @@ export const saleData = [
     image: female2,
     description:
       "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit laboriosam natus voluptatem eius dolorem fugit?",
+  },
+];
+
+export const aboutUs = [
+  {
+    id: 1,
+    title: "Our Team",
+    description:
+      "We are a passionate team of designers, developers, marketers, and product managers working together to shape the future of online retail.",
+  },
+  {
+    id: 2,
+    title: "Our Values",
+    description:
+      "Transparency, responsibility, and creativity drive everything we do. We believe in honest work and building long-term relationships.",
+  },
+  {
+    id: 3,
+    title: "Our Vision",
+    description:
+      "We envision a world where shopping online is more efficient, enjoyable, and accessible — from every device, everywhere.",
+  },
+];
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: "Jeff Bezos",
+    img: Ceo,
+    position: "Ceo",
+  },
+  {
+    id: 2,
+    name: "Tom Adward",
+    img: Customer,
+    position: "Customer",
+  },
+  {
+    id: 3,
+    name: "Kein Brown",
+    img: Accounter,
+    position: "Accounter",
+  },
+  {
+    id: 4,
+    name: "Anna Colliman",
+    img: Agent,
+    position: "Agent",
+  },
+  {
+    id: 5,
+    name: "Adam Clein",
+    img: Manager,
+    position: "Manager",
+  },
+  {
+    id: 6,
+    name: "Kabir Sinh",
+    img: Guard1,
+    position: "Guard",
+  },
+  {
+    id: 7,
+    name: "Arjun Ray",
+    img: Guard2,
+    position: "Guard",
+  },
+  {
+    id: 8,
+    name: "Elena Walker",
+    img: Farrosh,
+    position: "Cleaner",
   },
 ];
