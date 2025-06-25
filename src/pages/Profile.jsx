@@ -1,6 +1,20 @@
 import { motion } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { logout } from "../toolkit/app/auth/authSlice";
 
 export default function Profile() {
+  const { user } = useSelector((state) => state.auth);
+  console.log(user);
+
+  const dispath = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispath(logout());
+    navigate("/login");
+  };
+
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white px-4">
       <motion.div
@@ -15,7 +29,7 @@ export default function Profile() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2 }}
         >
-          Welcome, user.email
+          Welcome, {user.email}
         </motion.h2>
 
         <motion.p
@@ -28,6 +42,7 @@ export default function Profile() {
         </motion.p>
 
         <motion.button
+          onClick={handleLogout}
           className="w-full bg-teal-500 hover:bg-teal-600 text-gray-900 font-semibold py-3 rounded-xl transition"
           whileHover={{ scale: 1.05 }}
         >
