@@ -13,6 +13,8 @@ import Login from "../Login";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import LoginIcon from "@mui/icons-material/Login";
+import PersonIcon from "@mui/icons-material/Person";
+import Profile from "../Profile";
 
 const pages = [
   {
@@ -59,7 +61,6 @@ const pages = [
     icon: LoyaltyIcon,
     showInNav: true,
   },
-
   {
     name: "Login",
     component: Login,
@@ -71,6 +72,13 @@ const pages = [
     name: "Notfound",
     path: "/*",
     component: NotFound,
+    showInNav: false,
+  },
+  {
+    name: "Profile",
+    component: Profile,
+    path: "/profile",
+    icon: PersonIcon,
     showInNav: false,
   },
 ];
