@@ -4,9 +4,11 @@ import Logo from "../assets/logo.png";
 import pages from "../pages/routes";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   const handleToggleMenu = () => setIsOpenMenu((prev) => !prev);
 
@@ -20,6 +22,10 @@ export default function Navbar() {
       document.body.style.overflow = "";
     };
   }, [isOpenMenu]);
+
+  const isLoginToBeReplaced = (name) => name === "Login" && isAuthenticated;
+
+  const getProfilePage = () => pages.find((p) => p.name === "Profile");
 
   return (
     <nav className="bg-[#1f2937] fixed inset-x-0 top-0 z-50 shadow-md">
@@ -55,15 +61,32 @@ export default function Navbar() {
           <div className="flex gap-4">
             {pages
               .filter((page) => page.icon)
-              .map(({ name, path, icon: Icon }) => (
-                <Link
-                  key={name}
-                  to={path}
-                  className="flex items-center gap-1 px-4 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
-                >
-                  {name} <Icon />
-                </Link>
-              ))}
+              .map(({ name, path, icon: Icon }) => {
+                if (isLoginToBeReplaced(name)) {
+                  const profile = getProfilePage();
+                  return (
+                    <Link
+                      key={"Profile"}
+                      to={profile.path}
+                      className="flex items-center gap-1 px-4 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
+                    >
+                      Profile <profile.icon />
+                    </Link>
+                  );
+                }
+
+                if (name === "Profile") return null;
+
+                return (
+                  <Link
+                    key={name}
+                    to={path}
+                    className="flex items-center gap-1 px-4 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
+                  >
+                    {name} <Icon />
+                  </Link>
+                );
+              })}
           </div>
         </div>
 
@@ -107,16 +130,33 @@ export default function Navbar() {
           <div className="flex flex-col items-center gap-5">
             {pages
               .filter((page) => page.icon)
-              .map(({ name, path, icon: Icon }) => (
-                <Link
-                  key={name}
-                  to={path}
-                  onClick={handleToggleMenu}
-                  className="flex items-center gap-2 px-6 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
-                >
-                  <Icon /> {name}
-                </Link>
-              ))}
+              .map(({ name, path, icon: Icon }) => {
+                if (isLoginToBeReplaced(name)) {
+                  const profile = getProfilePage();
+                  return (
+                    <Link
+                      key={"Profile"}
+                      to={profile.path}
+                      className="flex items-center gap-1 px-4 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
+                    >
+                      <profile.icon /> Profile
+                    </Link>
+                  );
+                }
+
+                if (name === "Profile") return null;
+
+                return (
+                  <Link
+                    key={name}
+                    to={path}
+                    onClick={handleToggleMenu}
+                    className="flex items-center gap-2 px-6 py-2 border border-teal-400 text-teal-300 rounded-full hover:bg-teal-500 hover:text-white transition"
+                  >
+                    <Icon /> {name}
+                  </Link>
+                );
+              })}
           </div>
         </div>
       )}
