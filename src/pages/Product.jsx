@@ -1,11 +1,19 @@
-import { productsData } from "../data/db";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Rating from "@mui/material/Rating";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchQuery } from "../toolkit/app/product/productSlice";
 
 export default function Product() {
+  const dispatch = useDispatch();
+  const { filteredProducts, searchQuery } = useSelector(
+    (state) => state.products
+  );
+
+  const handleSearch = (e) => dispatch(setSearchQuery(e.target.value));
+
   return (
     <section className="pt-32 pb-16 bg-gray-50 min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,6 +25,8 @@ export default function Product() {
           <div className="relative w-full max-w-md">
             <input
               type="text"
+              value={searchQuery}
+              onChange={handleSearch}
               placeholder="Search for products..."
               className="w-full rounded-full border border-gray-300 py-3 pl-12 pr-4 text-gray-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:border-teal-500 shadow-sm"
             />
@@ -25,7 +35,7 @@ export default function Product() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {productsData.map((product, index) => (
+          {filteredProducts.map((product, index) => (
             <div
               key={index}
               className="relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
