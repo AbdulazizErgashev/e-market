@@ -35,7 +35,7 @@ export default function Navbar() {
           className="flex items-center gap-2 text-white text-2xl font-bold"
         >
           <img src={Logo} alt="Logo" className="w-10 h-10 object-contain" />
-          ee-market
+          e-market
         </Link>
 
         <div className="hidden md:flex items-center gap-10">
