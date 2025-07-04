@@ -15,7 +15,7 @@ const productSlice = createSlice({
       state.searchQuery = action.payload;
 
       state.filteredProducts = state.allProducts.filter((product) => {
-        const query = action.payload.toLowerCase();
+        const query = action.payload.toLowerCase().trim();
         return (
           product.title.toLowerCase().includes(query) ||
           product.category.toLowerCase().includes(query)
