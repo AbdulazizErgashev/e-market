@@ -5,6 +5,8 @@ const initialState = {
   allProducts: productsData,
   filteredProducts: productsData,
   searchQuery: "",
+  currentPage: 1,
+  productsPerPage: 8,
 };
 
 const productSlice = createSlice({
@@ -14,16 +16,21 @@ const productSlice = createSlice({
     setSearchQuery(state, action) {
       state.searchQuery = action.payload;
 
+      const query = action.payload.toLowerCase().trim();
       state.filteredProducts = state.allProducts.filter((product) => {
-        const query = action.payload.toLowerCase().trim();
         return (
           product.title.toLowerCase().includes(query) ||
           product.category.toLowerCase().includes(query)
         );
       });
+
+      state.currentPage = 1;
+    },
+    setCurrentPage(state, action) {
+      state.currentPage = action.payload;
     },
   },
 });
 
-export const { setSearchQuery } = productSlice.actions;
+export const { setSearchQuery, setCurrentPage } = productSlice.actions;
 export default productSlice.reducer;
