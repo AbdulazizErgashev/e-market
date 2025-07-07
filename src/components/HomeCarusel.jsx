@@ -4,8 +4,28 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { saleData } from "../data/db";
+import { useState, useEffect } from "react";
 
 export default function HomeCarusel() {
+  const [showNavigation, setShowNavigation] = useState(true);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setShowNavigation(false);
+      } else {
+        setShowNavigation(true);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div className="mt-20">
       <Swiper
@@ -14,7 +34,7 @@ export default function HomeCarusel() {
         centeredSlides={true}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        navigation={true}
+        navigation={showNavigation}
         className="rounded-2xl overflow-hidden shadow-lg"
       >
         {saleData.map((data) => (
@@ -34,7 +54,11 @@ export default function HomeCarusel() {
               </div>
 
               <div className="w-full md:w-1/2 h-64 md:h-[400px]">
-                <img src={data.image} alt={data.title} className="w-full h-full object-cover"/>
+                <img
+                  src={data.image}
+                  alt={data.title}
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </SwiperSlide>
