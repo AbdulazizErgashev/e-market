@@ -756,7 +756,7 @@ export const productsData = [
       },
       {
         color: "navy",
-        img: "https://www.robertdyas.co.uk/media/catalog/product/3/3/335063_1.jpg?quality=80&bg-color=255,255,255&height=1200&width=1200&canvas=1200:1200",
+        img: "https://i.etsystatic.com/39210184/r/il/40ef5a/6341765875/il_fullxfull.6341765875_c931.jpg",
       },
       {
         color: "tan",
