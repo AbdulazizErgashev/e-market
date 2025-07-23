@@ -3,11 +3,14 @@ import SearchIcon from "@mui/icons-material/Search";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import Rating from "@mui/material/Rating";
+import VisibilityIcon from "@mui/icons-material/Visibility";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setSearchQuery,
   setCurrentPage,
+  setCategoryFilter,
 } from "../toolkit/app/product/productSlice";
+import { Link } from "react-router-dom";
 
 export default function Product() {
   const dispatch = useDispatch();
@@ -44,7 +47,7 @@ export default function Product() {
           All Products
         </h2>
 
-        <div className="mb-10 flex justify-center">
+        <div className="mb-10 flex flex-col items-center justify-center gap-10">
           <div className="relative w-full max-w-md">
             <input
               type="text"
@@ -55,6 +58,20 @@ export default function Product() {
             />
             <SearchIcon className="absolute left-4 top-3.5 text-gray-400" />
           </div>
+
+          <div className="flex justify-center flex-wrap gap-4 mb-10">
+            {["all", "clothing", "shoes", "accessories", "electronics"].map(
+              (cat) => (
+                <button
+                  key={cat}
+                  onClick={() => dispatch(setCategoryFilter(cat))}
+                  className="px-4 py-2 border border-teal-500 text-teal-600 rounded-full hover:bg-teal-500 hover:text-white transition"
+                >
+                  {cat.charAt(0).toUpperCase() + cat.slice(1)}
+                </button>
+              )
+            )}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
@@ -63,12 +80,19 @@ export default function Product() {
               key={index}
               className="relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
             >
-              <div className="absolute top-4 right-4 cursor-pointer text-red-500">
-                {product.like ? (
-                  <FavoriteIcon fontSize="medium" />
-                ) : (
-                  <FavoriteBorderIcon fontSize="medium" />
-                )}
+              <div>
+                <div className="absolute top-4 left-4 cursor-pointer text-teal-600">
+                  <Link to={`/products/${product._id}`}>
+                    <VisibilityIcon fontSize="medium" />
+                  </Link>
+                </div>
+                <div className="absolute top-4 right-4 cursor-pointer text-red-500">
+                  {product.like ? (
+                    <FavoriteIcon fontSize="medium" />
+                  ) : (
+                    <FavoriteBorderIcon fontSize="medium" />
+                  )}
+                </div>
               </div>
 
               <img
