@@ -15,6 +15,7 @@ import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
 import Profile from "../Profile";
+import ProductInfo from "../ProductInfo";
 
 const pages = [
   {
@@ -34,6 +35,12 @@ const pages = [
     path: "/products",
     component: Product,
     showInNav: true,
+  },
+  {
+    name: "ProInfo",
+    component: ProductInfo,
+    path: "/products/:id",
+    showInNav: false,
   },
   {
     name: "Contact",
