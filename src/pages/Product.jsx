@@ -9,6 +9,7 @@ import {
   setSearchQuery,
   setCurrentPage,
   setCategoryFilter,
+  toggleLike,
 } from "../toolkit/app/product/productSlice";
 import { Link } from "react-router-dom";
 
@@ -75,9 +76,9 @@ export default function Product() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {currentProducts.map((product, index) => (
+          {currentProducts.map((product) => (
             <div
-              key={index}
+              key={product._id}
               className="relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
             >
               <div>
@@ -86,7 +87,11 @@ export default function Product() {
                     <VisibilityIcon fontSize="medium" />
                   </Link>
                 </div>
-                <div className="absolute top-4 right-4 cursor-pointer text-red-500">
+
+                <div
+                  className="absolute top-4 right-4 cursor-pointer text-red-500"
+                  onClick={() => dispatch(toggleLike(product._id))}
+                >
                   {product.like ? (
                     <FavoriteIcon fontSize="medium" />
                   ) : (
