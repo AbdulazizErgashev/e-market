@@ -12,6 +12,7 @@ import {
   toggleLike,
 } from "../toolkit/app/product/productSlice";
 import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Product() {
   const dispatch = useDispatch();
@@ -65,7 +66,10 @@ export default function Product() {
               (cat) => (
                 <button
                   key={cat}
-                  onClick={() => dispatch(setCategoryFilter(cat))}
+                  onClick={() => {
+                    dispatch(setCategoryFilter(cat));
+                    dispatch(setCurrentPage(1)); // Always go to page 1 on category change
+                  }}
                   className="px-4 py-2 border border-teal-500 text-teal-600 rounded-full hover:bg-teal-500 hover:text-white transition"
                 >
                   {cat.charAt(0).toUpperCase() + cat.slice(1)}
@@ -76,12 +80,17 @@ export default function Product() {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {currentProducts.map((product) => (
-            <div
-              key={product._id}
-              className="relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
-            >
-              <div>
+          <AnimatePresence>
+            {currentProducts.map((product) => (
+              <motion.div
+                key={product._id}
+                layout
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="relative flex flex-col items-center justify-between gap-4 p-6 bg-white rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300"
+              >
                 <div className="absolute top-4 left-4 cursor-pointer text-teal-600">
                   <Link to={`/products/${product._id}`}>
                     <VisibilityIcon fontSize="medium" />
@@ -98,44 +107,46 @@ export default function Product() {
                     <FavoriteBorderIcon fontSize="medium" />
                   )}
                 </div>
-              </div>
 
-              <img
-                src={product.img}
-                alt={product.title}
-                className="h-48 object-contain transition-transform duration-300 hover:scale-90"
-              />
+                <img
+                  src={product.img}
+                  alt={product.title}
+                  className="h-48 object-contain transition-transform duration-300 hover:scale-90"
+                />
 
-              <h3 className="text-xl font-semibold text-[#1f2937] text-center">
-                {product.title}
-              </h3>
+                <h3 className="text-xl font-semibold text-[#1f2937] text-center">
+                  {product.title}
+                </h3>
 
-              <span className="text-sm text-gray-500">{product.category}</span>
+                <span className="text-sm text-gray-500">
+                  {product.category}
+                </span>
 
-              <Rating
-                name="product-rating"
-                value={product.rating}
-                precision={0.1}
-                readOnly
-              />
+                <Rating
+                  name="product-rating"
+                  value={product.rating}
+                  precision={0.1}
+                  readOnly
+                />
 
-              <div className="flex flex-col items-center space-y-1">
-                <div className="flex items-center space-x-3">
-                  <span className="line-through text-gray-400 font-medium">
-                    ${product.price.toFixed(2)}
-                  </span>
-                  <span className="text-teal-600 font-bold">
-                    ${(product.price * 0.9).toFixed(2)}
-                  </span>
+                <div className="flex flex-col items-center space-y-1">
+                  <div className="flex items-center space-x-3">
+                    <span className="line-through text-gray-400 font-medium">
+                      ${product.price.toFixed(2)}
+                    </span>
+                    <span className="text-teal-600 font-bold">
+                      ${(product.price * 0.9).toFixed(2)}
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <button className="mt-4 px-4 py-2 flex items-center gap-2 border border-teal-500 text-teal-600 rounded-full hover:bg-teal-500 hover:text-white transition">
-                <ShoppingCartIcon />
-                Add to Cart
-              </button>
-            </div>
-          ))}
+                <button className="mt-4 px-4 py-2 flex items-center gap-2 border border-teal-500 text-teal-600 rounded-full hover:bg-teal-500 hover:text-white transition">
+                  <ShoppingCartIcon />
+                  Add to Cart
+                </button>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         <div className="mt-10 flex justify-center items-center flex-wrap gap-2">
